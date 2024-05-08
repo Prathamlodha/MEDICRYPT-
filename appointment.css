@@ -1,0 +1,557 @@
+ .slogan{
+    font-size:2px ;
+ }
+ body,
+ html {
+    color: #434343;
+     background-color: #e2f4f8;
+     font-family: 'Playfair Display', serif;
+     overflow-x: hidden !important;
+     margin: 0px !important;
+     padding: 0px !important;
+ }
+
+ 
+
+ .logo {
+     margin-top: 1vw;
+     
+    }
+    .logoimg{
+     height: 90px;
+
+ }
+
+
+ 
+ 
+
+ .nav {
+     position: fixed;
+     z-index: 2;
+     right: 0;
+     left: 0;
+     /* width: 100%; */
+     height: 108px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 0 25px 0 25px;
+     background-color: white;
+     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.10);
+     /* border-bottom-left-radius: 10px;
+     border-bottom-right-radius: 10px; */
+    }
+    
+    .nav .links a {
+     text-decoration: none;
+     margin-right: 25px;
+     font-size: 16px;
+     font-weight: 600;
+     color: #000;
+ }
+
+ .nav .links a:hover {
+     color: #bed7f1;
+   
+ }
+.mainlink {
+     color: #e0501b !important;
+ }
+
+
+ .nav .links .button {
+    padding: 8.5px 34px;
+    border-radius: 9px;
+    margin-left: 65px;
+    background-color: #3a6367;
+    display: inline;
+    font-size: 14px;
+    color: white;
+ }
+
+ .nav .links .button:hover {
+     color: black;
+ }
+
+
+
+ 
+ /* landing CSS */
+ .landing {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2vw 5vw 55w 5vw;
+    height: 750px;
+    background-image: url('6557d42e67235c838c1c82af_c8a56da-b47e-f67a-65b7-4715066faa3-poster-00001.jpg'); /* Replace with the actual path to your image */
+    background-size:auto; /* Adjust to your needs */
+    background-position: center; /* Adjust to your needs */
+}
+
+.landingText {
+    display: cover;
+    flex-direction: row;
+    width: 100;
+}
+
+.landingText h1 {
+    font-size: 80px;
+    margin: 0 20px !important;
+    padding: 0 20px;
+    font-weight: 800;
+    color: black;
+    font-family: 'Playfair Display', serif;
+    line-height: 1.8;
+    padding-right: 20px;
+    font-stretch: wider;
+   
+
+}
+
+.landingText h4 {
+    margin: 50px 30px !important;
+    font-size: 30px;
+    line-height: 2;
+    color: black;
+    font-family: 'Playfair Display', serif;
+    padding-right: 20px;
+    font-stretch:extra-expanded;
+    flex-direction: column;
+}
+
+.landingImage img {
+    width: 120vw;
+}
+
+.landingImage {
+    display: cover;
+    flex-direction: column;
+    width: 100;
+}
+.landingText h1 {
+    font-size: 70px; /* Adjust as needed */
+    font-family: 'Open Sans', sans-serif; /* Or Roboto */
+    color: #333; /* Adjust to match your color palette */
+  }
+  
+  .landingText h4 {
+    font-size: 24px; /* Adjust as needed */
+    font-family: 'Merriweather', serif; /* Or Playfair Display */
+    color: #666; /* Adjust to match your color palette */
+  }
+  
+  .landingText p {
+    font-size: 16px;
+    line-height: 1.8;
+    font-family: 'Lato', sans-serif; /* Or Arial */
+    color: #999; /* Adjust to match your color palette */
+  }
+  
+  .landing .button {
+    background-color: #e0501b; /* Adjust to match your CTA color */
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif; /* Or Roboto */
+    color: #fff; /* Adjust to match CTA text color */
+  }
+  
+
+/* Add any additional styling as needed */
+
+
+ /* services*/
+ 
+ /* .aboutlist {
+     width: 50%;
+ } */
+
+ ol {
+     
+     list-style: none;
+     color: #e0501b;
+ }
+
+ ol li {
+     font-size: 34px;
+     position: relative;
+     margin-bottom: 20px;
+     border-bottom: 1px solid #ebebeb;
+ }
+
+ li p {
+     font-size: 16px;
+     color: #000;
+     padding-left: 60px;
+     line-height: 30px;
+     opacity: 0.6;
+ }
+
+ li span {
+     position: absolute;
+     line-height: 25px;
+     font-weight: 600;
+ }
+
+
+ /* info section CSS*/
+ .infoSection {
+     height: 600px;
+ }
+
+ .infoHeader {
+     align-items: center;
+     text-align: center;
+     margin-bottom: 20px;
+ }
+
+ .infoCards {
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     padding: 40px 0 40px 0;
+ }
+
+ .infoCards .card {
+     border-end-end-radius: 45px;
+     /* border-radius: 18px; */
+     position: relative;
+     height: 280px;
+     width: 360px;
+     background: #c1e6f8;
+     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.2);
+ }
+
+  .cardImg {
+     width: 70px;
+     position: absolute;
+     right: -26px;
+     top: -32px;
+ }
+
+ 
+ .cardContent {
+     padding: 0 20px;
+     line-height: 2;
+
+     color: #000000;
+ }
+
+ /* .cardContent p {
+    line-height: 2;
+
+    color: #000000;
+    
+ } */
+ .cardBtn {
+     position: absolute;
+      right: 20px;
+     padding: 10px; 
+     background-color: #e2f4f8;
+     width: 25px;
+     height: 20px;
+     border-radius: 6px;
+     display: flex; 
+      justify-content: center;
+     align-items: center;
+     /* transition: all ease-in-out .2s; */
+ }
+
+  .cardBtn:hover {
+     background-color:#effcff;
+ }
+
+ .cardContent .cardBtn .cardIcon {
+     /* position: relative; */
+     top: 0px;
+     left: 0px;
+     width: 16px;
+ }
+
+ /* Banner CSS*/
+ .banner {
+     height: 350px;
+     background-color: #3a6367;
+     display: flex;
+     padding: 50px;
+     justify-content: space-evenly;
+     align-items: center;
+ }
+
+ .bannerText h1 {
+     font-size: 3vw;
+     color: #cfcfcf;
+     font-weight: 600;
+ }
+
+ .bannerText img {
+    width: 28%;
+     margin-right: 20px;
+ }
+
+ 
+
+ /*Footer CSS*/
+ .footer {
+     height: 100px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     padding-bottom: 20px;
+ }
+
+ .footerlinks a {
+    text-decoration: none;
+     margin: 20px;
+     font-size: 16px;
+     font-weight: 600;
+     color: #000;
+ }
+
+
+ .footer a:hover {
+     color: #3a6367;
+     text-decoration: underline;
+ }
+
+ /* Reset some default styles */
+body,
+h1,
+h2,
+form {
+    margin: 10px;
+    padding: 20px;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 3;
+    background-image: url(''); /* Replace with the actual path to your image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect */
+    color: #060505; /* Set the text color */
+    background-color: rgba(76, 105, 124, 0.5); /* Bluish-grey tint with transparency */
+    transition: background-color 2s ease; /* Add transition for background color change */
+}
+
+/* General Styles */
+.container {
+    max-width: 1000px;
+    margin: 0px auto;
+    padding: 0 0px;
+}
+
+/* Book Appointment Section Styles */
+.content-9-block-3 {
+    color: #021217;
+    padding: 10px 10px;
+}
+
+.service-contact-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Adjust height as needed */
+    background-image: url('6557a0d97f803b3365a22831_d50c38-e522-4f32-0304-8c4fccf52ff-poster-00001.jpg'); /* Replace with the actual path to your image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.heading {
+    font-size: 50px;
+    font-weight: 1000;
+    margin-bottom: 50px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.form-block {
+    width: 60%;
+    background-color: rgba(67, 97, 102, 0.397);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-field {
+    margin-bottom: 30px;
+}
+
+.field-label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.text-field {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.text-area {
+    resize:horizontal;
+}
+
+.checkbox-field {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.checkbox-label {
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.checkbox-field-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.submit-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+/* Success and Error Messages */
+.success-message,
+.error-message {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.success-message {
+    background-color: #dff0d8;
+    border: 1px solid #d6e9c6;
+    color: #3c763d;
+}
+
+.error-message {
+    background-color: #f2dede;
+    border: 1px solid #ebccd1;
+    color: #a94442;
+}
+
+/* Responsive Styles */
+@media (max-width: 767px) {
+    .service-contact-layout {
+        flex-direction: column;
+    }
+
+    .form-block {
+        width: 100%;
+    }
+}
+.background-image-container {
+    position: relative;
+    text-align: center;
+    color: rgb(78, 76, 76);
+  }
+
+  .background-image-content {
+    position: absolute;
+    font-size: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .hero-content {
+    padding: 60px;
+    color: #036d6d;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.content-box {
+    text-align: right;
+    background-color: rgba(35, 34, 34, 0);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    font-size: 22px;
+    line-height: 1.8;
+    color: #264b53;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: justify;
+}
+
+.additional-content-box {
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-family: fantasy;
+}
+
+.additional-heading {
+    font-size: 35px;
+    color: #0c0c0c;
+    margin-bottom: 10px;
+    font-family: cursive;
+}
+
+.additional-paragraph {
+    font-size: 20px;
+    color: #06677c;
+    line-height: 1.6;
+    font-family: cursive;
+}
+
+.button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #17a2b8;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.top-right-box {
+    background-color: #17a3b800;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.top-right-content {
+    color: #504f4f;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    font-family: cursive;
+}
+
+/* Existing styles (no changes) */
+.hero-content-box {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 10 10 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}

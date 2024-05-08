@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="indexcss.css">
+    <link rel="stylesheet" href="indexmore.css">
+  
+</head>
+<body>
+   
+     <!-- navbar -->
+     <div class="nav">
+        <div class="logo">
+          <a href="index.html"> <img class="logoimg" src="/images/logo/logo-transparent-svg.svg" height="80px" /></a>
+          <!-- logo -->
+    
+        </div>
+        <div class="links">
+          <a href="/index.html" class="/index.html">Home</a>
+          <a href="about.html">About us</a>
+          <a href="blogssssss/indexmore.html">Services</a>
+          <a href="/appointment.html">Appointment</a>
+         
+          <a class="button" href="register/register.html">Register</a>
+        </div>
+      </div>
+    
+    <!-- navbar -->
+
+
+ 
+
+
+  <div id="moresection">
+    <div id="selection">
+        <p id="moreheading">FITNESS CALCULATORS</p><br>
+        <div>
+            
+        <div ><button  id="bmiselect">BMI </button></div>
+        <div ><button  id="bmrselect">BMR</button></div>
+    </div>
+    </div>
+    <div id="bmicalc">
+       
+        <form>
+            <div id="divofbmicalc1">
+			<div class="form-inline">
+				<label>Weight(kg):</label> 
+				<input type="text" class="form-control" id="weight" size="10" >
+			</div>
+			<div class="form-inline">
+				<label>Height(cm):</label> 
+				<input type="text" class="form-control" id="height" size="10">
+			</div>
+            
+			<br />
+			<button class="btn btn-primary" type="button" onClick="calculateBmi() " id="showbmi">Calculate</button>
+			<br /><br />
+            <button class="btn btn-success" type="reset" id="resetbmi">Reset</button>
+			<div class="form-inline">
+                </div>
+                </div>
+                <div id="divofbmicalc2" style="display: none;">
+				<label>BMI:</label> 
+				<input class="form-control" type="text" id="bmi" size="10">
+		
+			<br />
+			<div class="form-inline">
+				<label>Result:</label> <br>
+				<input class="form-control" type="text" id="result" size="25">
+			
+			<br>
+			
+            </div>
+        </div>
+		</form>
+    
+  </div>
+
+  <div id="bmrcalc" style="display: none;">
+    <form action="#">
+        <div id="divofbmr1">
+        <select name="" id="genders">
+        
+            <option value="Male">Male</option>>
+            <option value="Female">Female</option>
+        </select>
+        <br>
+        Age:<br>
+        <input type="text" id="age" value="20"><br>
+        Height:<br>
+        <input type="text" id="heigth" value="180"><br>
+        Weight:<br>
+        <input type="text" id="weigth" value="80"><br>
+        <button class="btn btn-primary" type="button" onClick="calculateBmr() " id="showbmr">Calculate</button>
+			<br /><br />
+            <button class="btn btn-success" type="reset" id="resetbmr">Reset</button>
+        </div>
+    
+        <div id="divofbmr2" style="display: none;">
+            
+			<div class="form-inline">
+				<label>BMR IS  :</label> <br>
+				<input class="form-control" type="text" id="resultbmr" size="25">
+			</div>
+			<br>
+
+            <table>
+                <thead>
+                    <th>ACTIVITY</th>
+                    <th>REQUIRED CALORIES</th>
+                </thead>
+
+
+                <tr>
+                   <td><p>Sedentary<br>
+                    Light or no exercise and desk job</p></td>
+                   <td>
+                       <input type="text" name="" id="S">
+                   </td>
+                 
+                   
+                <tr>
+                   <td><p>Lightly Active<br>
+                    Light exercise or sports 1-3 days a week</p></td>
+                   <td>
+                       <input type="text" name="" id="LA">
+                   </td>
+                  </tr>
+                  <tr>
+                     <td><p>Moderately Active<br>
+                      Moderate exercise or sports 3-5 days a week</p></td>
+                     <td>
+                         <input type="text" name="" id="MA">
+                     </td>
+                      </tr>
+                <tr>
+                   <td><p>Very Active <br>
+                    Hard exercise or sports 6-7 days a week</p></td>
+                   <td>
+                       <input type="text" name="" id="VA">
+                   </td>
+                  </tr>
+                <tr>
+                   <td><p>Extremely Active <br>
+                    Hard daily exercise or sports and physical job</p></td>
+                   <td>
+                       <input type="text" name="" id="EA">
+                   </td>
+
+
+                </tr>
+            </table>
+        </form> 
+        
+  </div>
+
+</div>
+</div>
+
+<footer class="footer">
+Copyright &copy; Medicrypt.com
+</footer>
+    <script>
+
+
+
+// bmi calc
+
+document.getElementById("showbmi").addEventListener("click",function(){
+
+    mybox1 = document.getElementById("divofbmicalc2");
+
+    if(mybox1.style.display=="none"){
+        mybox1.style.display="flex";
+    }
+})
+document.getElementById("showbmr").addEventListener("click",function(){
+
+    mybox2 = document.getElementById("divofbmr2");
+
+    if(mybox2.style.display=="none"){
+        mybox2.style.display="flex";
+    }
+})
+
+document.getElementById("resetbmi").addEventListener("click",function(){
+
+    mybox1 = document.getElementById("divofbmicalc2");
+
+    if(mybox1.style.display=="flex"){
+        mybox1.style.display="none";
+    }
+})
+document.getElementById("resetbmr").addEventListener("click",function(){
+
+    mybox2 = document.getElementById("divofbmr2");
+
+    if(mybox2.style.display=="flex"){
+        mybox2.style.display="none";
+    }
+})
+
+
+function calculateBmi() {
+	var weight = document.getElementById('weight').value;
+	var height = document.getElementById('height').value;
+ 
+	if(weight > 0 && height > 0){	
+		var bmi = weight/(height/100*height/100);
+		document.getElementById('bmi').value = bmi;
+ 
+		if(bmi < 18.5){
+			document.getElementById('result').value = "You are underweight.";
+		}
+		if(bmi > 18.5 && bmi < 24.9){
+			document.getElementById('result').value = "You are healthy.";
+		}
+		if(bmi > 25){
+			document.getElementById('result').value = "You are overweight.";
+		}
+
+        console.log(bmi);
+	}
+	else{
+		alert("Please enter something first!")
+	}
+}
+function calculateBmr(){
+    var bmr;
+var age = document.getElementById("age").value;
+var gender = document.getElementById("genders").value;
+var heigth = document.getElementById("heigth").value;
+var weigth = document.getElementById("weigth").value;
+
+if (gender == "Male") {
+bmr = (88.3 + (13.4 * weigth) + (4.8*heigth) - (5.7 * age ))
+}
+else {
+bmr = (447.6 + (9.2 * weigth) + (3.1 *heigth) - (4.3 *age ))
+}
+
+document.getElementById("resultbmr").value =bmr;
+document.getElementById("S").value =bmr*1.2;
+document.getElementById("LA").value =bmr*1.375;
+document.getElementById("MA").value =bmr*1.55;
+document.getElementById("VA").value =bmr*1.725;
+document.getElementById("EA").value =bmr*1.9;
+}
+
+
+document.getElementById("bmiselect").addEventListener("click",function(){
+
+    morebox1= document.getElementById("bmicalc");
+    morebox2= document.getElementById("bmrcalc");
+    morebox3 = document.getElementById("bmiselect");
+    morebox4= document.getElementById("bmrselect");
+    if(morebox1.style.display=="none"){
+        morebox1.style.display="flex";
+        morebox2.style.display="none";
+        morebox3.style.backgroundColor ="rgb(155, 155, 155)";
+        morebox4.style.backgroundColor ="rgb(255, 255, 255)";
+        
+    }
+    
+    
+})
+document.getElementById("bmrselect").addEventListener("click",function(){
+
+    morebox1= document.getElementById("bmicalc");
+    morebox2= document.getElementById("bmrcalc");
+    morebox3 = document.getElementById("bmiselect");
+    morebox4= document.getElementById("bmrselect");
+
+    if(morebox2.style.display=="none"){
+        morebox2.style.display="flex";
+        morebox1.style.display="none";
+        morebox4.style.backgroundColor ="rgb(155, 155, 155)";
+        morebox3.style.backgroundColor ="rgb(255, 255, 255)";
+    }
+    
+})
+
+
+
+// bmicalc
+function pageWidth() {
+  return window.innerWidth != null? window.innerWidth : document.documentElement && document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body != null ? document.body.clientWidth : null;
+}
+console.log(pageWidth());
+
+
+function greatersize(){
+    var box1 = document.getElementById("mobilemenu");
+        var box2 = document.getElementById("middlefirst");
+        var box3 =document.getElementById("footer");
+   if(pageWidth()>921){
+             box1.style.display="none";
+            box2.style.display="block";
+            box3.style.display="flex";
+   }
+}
+    document.getElementById("mobilemenubtn").addEventListener("click",function(){
+    
+        var box1 = document.getElementById("mobilemenu");
+        var box2 = document.getElementById("moresection");
+        var box3 =document.getElementById("footer");
+    if(pageWidth() <921){
+        if(box1.style.display=="none" ){
+            box1.style.display="grid";
+            box2.style.display="none";
+            box3.style.display="none";
+
+    
+        }
+        else{
+            box1.style.display="none";
+            box2.style.display="block";
+            box3.style.display="flex";
+    
+        }}
+
+        else{
+            greatersize();
+        }
+    })
+
+    // for page greater than 921px
+     var box1 = document.getElementById("mobilemenu");
+        var box2 = document.getElementById("moresection");
+        var box3 =document.getElementById("footer");
+   if(pageWidth()>921){
+             box1.style.display="none";
+            box2.style.display="block";
+            box3.style.display="flex";
+   }
+
+//    for resizing
+   
+window.addEventListener('resize', function(event){
+    greatersize();
+})
+
+
+
+    
+    </script>
+    
+</body>
+</html>

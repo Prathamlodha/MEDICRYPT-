@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geoapify Places API Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+      height: 100vh; /* Use full viewport height */
+      width: 100%; /* Use full viewport width */
+    }
+
+    .popup-content {
+      font-family: Arial, sans-serif;
+    }
+
+    .popup-content b {
+      color: #333;
+    }
+
+    .popup-content p {
+      margin: 0;
+    }
+
+    .location-icon {
+      background-image: url('https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png');
+      background-size: contain;
+      width: 25px;
+      height: 41px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+<script>
+  // Replace "YOUR_API_KEY" with your actual API key
+  const apiKey = "8d2d2a8043594c03a78e2442bd5a7b30";
+
+  // Initialize the map
+  const map = L.map('map').setView([0, 0], 13);
+
+  // Add the tile layer (you can use a different tile provider if needed)
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+  }).addTo(map);
+
+  // Add location search bar
+  const geocoder = L.Control.geocoder({
+    defaultMarkGeocode: false,
+    placeholder: "Search location...",
+    geocoder: L.Control.Geocoder.nominatim({
+      geocodingQueryParams: {
+        key: apiKey
+      }
+    })
+  }).addTo(map);
+
+  // Listen for 'markgeocode' event
+  geocoder.on('markgeocode', function(e) {
+    const { center } = e.geocode || {};
+    if (center) {
+      map.setView(center, 13);
+    }
+  });
+
+  function getUserLocation() {
+    // Get user's location using browser geolocation
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(position => {
+        const userLocation = [position.coords.latitude, position.coords.longitude];
+        
+        // Set the map view to the user's location
+        map.setView(userLocation, 13);
+
+        // Add a marker for the user's location
+        const locationMarker = L.marker(userLocation, {
+          icon: L.icon({
+            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41]
+          })
+        }).addTo(map);
+
+        // Make a request to the Geoapify Places API for hospitals near the user
+        fetch(`https://api.geoapify.com/v2/places?categories=healthcare.hospital&around=${userLocation.join(',')}&radius=5000&limit=20&apiKey=${apiKey}`)
+          .then(response => response.json())
+          .then(result => {
+            // Process the results and add markers to the map
+            result.features.forEach(place => {
+              const coordinates = place.geometry.coordinates.reverse();
+              const name = place.properties.name;
+
+              L.marker(coordinates).addTo(map)
+                .bindPopup(`<div class="popup-content"><b>${name}</b><p>${coordinates.join(', ')}</p></div>`);
+            });
+          })
+          .catch(error => console.error('Error fetching data:', error));
+      }, error => {
+        console.error('Error getting user location:', error);
+        // If geolocation fails, prompt the user to input their location manually
+        const manualLocation = prompt('Geolocation failed. Please enter your location (latitude, longitude):');
+        if (manualLocation) {
+          const [latitude, longitude] = manualLocation.split(',').map(coord => parseFloat(coord.trim()));
+          if (!isNaN(latitude) && !isNaN(longitude)) {
+            const userLocation = [latitude, longitude];
+            map.setView(userLocation, 13);
+            const locationMarker = L.marker(userLocation, {
+              icon: L.icon({
+                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+                iconSize: [25, 41],
+                iconAnchor: [12, 41]
+              })
+            }).addTo(map);
+          } else {
+            alert('Invalid input. Please enter latitude and longitude separated by comma.');
+          }
+        }
+      });
+    } else {
+      console.error('Geolocation is not supported by your browser.');
+    }
+  }
+
+  getUserLocation();
+</script>
+
+</body>
+</html>

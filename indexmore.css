@@ -1,0 +1,204 @@
+/* General styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('https://images.pexels.com/photos/9927899/pexels-photo-9927899.jpeg?auto=compress&cs=tinysrgb&w=600');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0;
+}
+
+/* Uppermost section styling with glassmorphism effect */
+.logo {
+    margin-top: 1vw;
+}
+
+.logoimg {
+    height: 90px;
+}
+
+.nav {
+    position: fixed;
+    z-index: 2;
+    right: 0;
+    left: 0;
+    height: 108px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px 0 25px;
+    background-color: white;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.10);
+}
+
+.nav .links a {
+    text-decoration: none;
+    margin-right: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+}
+
+.nav .links a:hover {
+    color: #bed7f1;
+}
+
+.mainlink {
+    color: #e0501b !important;
+}
+
+.nav .links .button {
+    padding: 8.5px 34px;
+    border-radius: 9px;
+    margin-left: 65px;
+    background-color: #3a6367;
+    display: inline-block;
+    font-size: 14px;
+    color: white;
+}
+
+.nav .links .button:hover {
+    color: black;
+}
+
+/* More Section Styles */
+#moresection {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+#selection {
+    margin-left: 10vw;
+}
+
+#selection div {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+#moreheading {
+    font-size: 3rem;
+    font-family: 'Anton', sans-serif;
+    color: rgb(4, 67, 184);
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+
+#bmiselect,
+#bmrselect {
+    width: 15vw;
+    height: 10vh;
+    background-color: rgb(4, 67, 184); /* Dark blue background */
+    color: #fff; /* White text color */
+    font-size: 1.5rem;
+    border: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#bmiselect:hover,
+#bmrselect:hover {
+    background-color: #fff; /* White background on hover */
+    color: rgb(4, 67, 184); /* Dark blue text color on hover */
+}
+
+#bmicalc,
+#divofbmicalc1,
+#divofbmicalc2 {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    border: 2px solid rgb(99, 102, 102);
+    background-color: rgb(155, 155, 155);
+    font-weight: bold;
+    font-size: 1.4rem;
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+#bmicalc input,
+#bmicalc form input {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(99, 102, 102);
+}
+
+#bmicalc form,
+#bmrcalc form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#bmicalc form label,
+#bmrcalc form label {
+    color: rgb(253, 252, 251);
+    margin-bottom: 10px;
+}
+
+#bmicalc form button,
+#bmrcalc form button {
+    height: 40px;
+    width: 150px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    color: rgb(255, 255, 255);
+    background-color: rgb(4, 67, 184);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#bmicalc form button:hover,
+#bmrcalc form button:hover {
+    background-color: #fff; /* White background on hover */
+    color: rgb(4, 67, 184); /* Dark blue text color on hover */
+}
+
+@media (max-width: 921px) {
+    #bmicalc form,
+    #divofbmicalc1,
+    #divofbmicalc2 {
+        width: 80vw;
+    }
+
+    #bmicalc form input {
+        width: 100%;
+    }
+
+    #bmiselect,
+    #bmrselect {
+        width: 100%;
+    }
+}
+
+.footer {
+    color: #fff;
+    text-align: center;
+    font-weight: 500;
+    font-size: 28px;
+}
+.fitness-container {
+    margin-top: 150px; /* Adjust the margin-top value as needed */
+    padding: 20px;
+    background-color: #f5f5f5; /* Adjust the background color as needed */
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}

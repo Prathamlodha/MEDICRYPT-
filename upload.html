@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document Upload</title>
+  <link rel="stylesheet" href="upload.css" />
+
+  <style>
+    /* Add your custom CSS styles here */
+    .upload-container {
+      max-width: 600px;
+      background-color: #fff;
+      width: 500px;
+    height: 400px;
+      position: absolute; /* or relative, depending on your layout */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -36%);
+
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.10);
+
+    }
+    .upload-btn {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .file-input {
+      display: none;
+    }
+    
+  </style>
+</head>
+<body>
+  
+  <div class="nav">
+    <div class="logo">
+      <a href="index.html"> <img class="logoimg" src="./images/logo/logo.svg" height="80px" /></a>
+      
+      <!-- logo -->
+
+    </div>
+    <div class="links">
+      <a href="index.html" class="mainlink">Home</a>
+      <a href="about.html">About us</a>
+      <a href="blogssssss/indexmore.html">Services</a>
+      <a href="appointment.html">Appointment</a>
+      <a href="blogssssss/indexblogs.html">Blogs</a>
+     
+      <a class="button" href="register/register.html">Register</a>
+    </div>
+  </div>
+  <img id="background-img" src="./images/upload.jpg">
+  <div class="background-img">
+  
+    <div class="upload-container">
+    <h2>Upload Documents</h2>
+    <p>Select the documents you want to upload:</p>
+    <form id="upload-form" enctype="multipart/form-data">
+      <input type="file" name="files[]" id="file-input" class="file-input" multiple>
+      <label for="file-input" class="upload-btn">Choose Files</label>
+      <div id="file-list"></div>
+      <button type="submit" id="submit-btn" class="upload-btn" style="display: none;">Upload</button>
+    </form>
+    <div id="upload-progress" style="display: none;">
+      <p>Uploading...</p>
+      <progress id="progress-bar" max="100" value="0"></progress>
+      <p id="progress-label">0%</p>
+    </div>
+  </div></div>
+  <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+  <script src="https://mediafiles.botpress.cloud/6c2dc1d4-c08a-45f2-b55e-c7b00317cf55/webchat/config.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const fileInput = document.getElementById('file-input');
+      const fileList = document.getElementById('file-list');
+      const submitBtn = document.getElementById('submit-btn');
+      const uploadProgress = document.getElementById('upload-progress');
+      const progressBar = document.getElementById('progress-bar');
+      const progressLabel = document.getElementById('progress-label');
+
+      fileInput.addEventListener('change', function() {
+        fileList.innerHTML = '';
+        for (const file of fileInput.files) {
+          const listItem = document.createElement('div');
+          listItem.textContent = file.name;
+          fileList.appendChild(listItem);
+        }
+        submitBtn.style.display = 'block';
+      });
+
+      document.getElementById('upload-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(this);
+        const xhr = new XMLHttpRequest();
+
+        xhr.open('POST', '/upload', true);
+
+        xhr.upload.addEventListener('progress', function(event) {
+          if (event.lengthComputable) {
+            const percentComplete = (event.loaded / event.total) * 100;
+            progressBar.value = percentComplete;
+            progressLabel.textContent = Math.round(percentComplete) + '%';
+          }
+        });
+
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+              alert('Upload successful');
+              fileInput.value = '';
+              fileList.innerHTML = '';
+              submitBtn.style.display = 'none';
+              uploadProgress.style.display = 'none';
+              progressBar.value = 0;
+              progressLabel.textContent = '0%';
+            } else {
+              alert('Upload failed');
+            }
+          }
+        };
+
+        xhr.send(formData);
+
+        uploadProgress.style.display = 'block';
+      });
+    });
+  </script>
+</body>
+</html>
